@@ -1,0 +1,7 @@
+li#wp-admin-bar-menu-fast-active {
+    background-color: rgb(74, 124, 74) !important;
+}
+
+li#wp-admin-bar-menu-fast-deactive {
+    background-color: rgb(161, 66, 66) !important;
+}

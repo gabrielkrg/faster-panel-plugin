@@ -18,7 +18,7 @@ if (function_exists('acf_add_local_field_group')) {
                 'name' => 'faster_panel_acf',
                 'aria-label' => '',
                 'type' => 'select',
-                'instructions' => 'Ao ativar esta opção, todas as consultas serão de até 3 meses atrás. (Notícias e Mídias) Utilize essa opção para acelerar seu painel, mas desative caso precise pesquisar algo além dos 3 meses retroativos.',
+                'instructions' => 'Ao ativar esta opção, todas as consultas serão de até 1 meses atrás. (Notícias e Mídias) Utilize essa opção para acelerar seu painel, mas desative caso precise pesquisar algo além dos 1 meses retroativos.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(
@@ -122,7 +122,7 @@ function user_config()
         {
             if ($query->is_main_query())
                 $query->set('date_query', [
-                    'after' => '3 month ago',
+                    'after' => '1 month ago',
                     'inclusive' => true,
                 ]);
         }
@@ -137,7 +137,7 @@ function user_config()
                 return;
 
             $query->set('date_query', [
-                'after' => '3 month ago',
+                'after' => '1 month ago',
                 'inclusive' => true,
             ]);
         }

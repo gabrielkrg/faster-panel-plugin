@@ -7,6 +7,7 @@ Author: BW2
 Version: 1.0.0
 */
 
+// Custom field (faster_panel_acf)
 if (function_exists('acf_add_local_field_group')) {
     acf_add_local_field_group(array(
         'key' => 'group_63f7c914c6563',
@@ -60,9 +61,11 @@ if (function_exists('acf_add_local_field_group')) {
     ));
 }
 
+// Configurações iniciais
 add_action('init', 'user_config');
 function user_config()
 {
+    // Adiciona custom styles ao head do painel
     add_action('admin_head', 'fpb_styles');
     function fpb_styles()
     {
@@ -76,6 +79,7 @@ function user_config()
         return;
     }
 
+    // Adiciona status do plugin na barra no painel
     add_action('admin_bar_menu', 'admin_bar_item', 500);
     function admin_bar_item(WP_Admin_Bar $admin_bar)
     {
@@ -115,8 +119,12 @@ function user_config()
         $admin_bar->add_menu($args);
     }
 
+    // Verificação se o custom field do plugin está como status ativo
     if (is_admin() && $faster_panel == 'active') {
 
+        // Funções que são aplicadas quando o custom field do plugin está ativo
+
+        // custom range para os posts
         add_action('pre_get_posts', 'post_modify_range_date');
         function post_modify_range_date($query)
         {
@@ -127,6 +135,7 @@ function user_config()
                 ]);
         }
 
+        // custom range para as midias
         add_action('pre_get_posts', 'modify_media_range_date');
         function modify_media_range_date($query)
         {

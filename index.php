@@ -72,19 +72,7 @@ function user_config()
 
     if (is_admin() && $faster_panel == 'active') {
 
-        add_filter('pre_get_posts', function ($query) {
-            $query->set(
-                'ep_integrate',
-                true
-            );
-            $query->set('date_query', array('after' => '3 month ago'));
-        });
-
-
-        $current_date = date('U');
-        $date_30_days_ago =
-
-            add_action('pre_get_posts', 'post_modify_range_date');
+        add_action('pre_get_posts', 'post_modify_range_date');
         function post_modify_range_date($query)
         {
             if ($query->is_main_query())
@@ -93,8 +81,6 @@ function user_config()
                     'inclusive' => true,
                 ]);
         }
-
-
 
         add_action('pre_get_posts', 'modify_media_range_date');
         function modify_media_range_date($query)

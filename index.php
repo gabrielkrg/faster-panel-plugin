@@ -14,11 +14,11 @@ if (function_exists('acf_add_local_field_group')) {
         'fields' => array(
             array(
                 'key' => 'field_63f7c91566ac2',
-                'label' => 'Faster Panel',
+                'label' => 'Acelerar painel',
                 'name' => 'faster_panel_acf',
                 'aria-label' => '',
                 'type' => 'select',
-                'instructions' => '',
+                'instructions' => 'Ao ativar esta opção, todas as consultas serão de até 3 meses atrás. (Notícias e Mídias) Utilize essa opção para acelerar seu painel, mas desative caso precise pesquisar algo além dos 3 meses retroativos.',
                 'required' => 0,
                 'conditional_logic' => 0,
                 'wrapper' => array(

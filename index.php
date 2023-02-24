@@ -65,18 +65,19 @@ if (function_exists('acf_add_local_field_group')) {
 add_action('init', 'user_config');
 function user_config()
 {
-    // Adiciona custom styles ao head do painel
-    add_action('admin_head', 'fpb_styles');
-    function fpb_styles()
-    {
-        wp_enqueue_style('fpb-styles', plugins_url('assets/css/styles.css', __FILE__));
-    }
-
+    // Fail fast
     $user_id = get_current_user_id();
     $faster_panel = get_field('faster_panel_acf', 'user_' . $user_id);
 
     if (!$user_id || !$faster_panel) {
         return;
+    }
+
+    // Adiciona custom styles ao head do painel
+    add_action('admin_head', 'fpb_styles');
+    function fpb_styles()
+    {
+        wp_enqueue_style('fpb-styles', plugins_url('assets/css/styles.css', __FILE__));
     }
 
     // Adiciona status do plugin na barra no painel
